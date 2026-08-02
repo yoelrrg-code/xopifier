@@ -1,0 +1,2 @@
+<?php
+return ['messages'=>['Tus datos personales serán usados para procesar tus pedidos, para ayudarte con la experiencia a lo largo del sitio web y otros propósitos descritos en nuestra [privacy_policy].'=>'Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our [privacy_policy].','woocommerce_checkout_privacy_policy_text'=>'Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our [privacy_policy].']];

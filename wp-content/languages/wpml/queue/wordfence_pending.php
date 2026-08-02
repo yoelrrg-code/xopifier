@@ -1,0 +1,2 @@
+<?php
+return ['items'=>['Bot'=>['saveStringInDb'=>true,'cmp'=>['wordfence',1],'names'=>[],'urls'=>[]],'Error'=>['saveStringInDb'=>true,'cmp'=>['wordfence',1],'names'=>[],'urls'=>[]],'IP'=>['saveStringInDb'=>true,'cmp'=>['wordfence',1],'names'=>[],'urls'=>[]],'URL'=>['saveStringInDb'=>true,'cmp'=>['wordfence',1],'names'=>[],'urls'=>[]],'WHOIS LOOKUP'=>['saveStringInDb'=>true,'cmp'=>['wordfence',1],'names'=>[],'urls'=>[]]]];

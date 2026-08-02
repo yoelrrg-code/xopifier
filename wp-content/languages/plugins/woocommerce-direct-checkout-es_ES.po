@@ -1,0 +1,584 @@
+# Translation of Plugins - Direct Checkout for WooCommerce - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Direct Checkout for WooCommerce - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-03-06 20:02:50+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Direct Checkout for WooCommerce - Stable (latest release)\n"
+
+#. Plugin URI of the plugin
+#: woocommerce-direct-checkout.php
+msgid "https://quadlayers.com/products/woocommerce-direct-checkout/"
+msgstr "https://quadlayers.com/products/woocommerce-direct-checkout/"
+
+#: lib/controller/class-general.php:128 lib/controller/class-general.php:129
+msgid "Replace cart url"
+msgstr "Reemplazar la URL del carrito"
+
+#: lib/controller/class-products.php:144
+msgid "Alternative"
+msgstr "Alternativo"
+
+#: lib/controller/class-products.php:143
+msgid "Default"
+msgstr "Por defecto"
+
+#: lib/controller/class-products.php:138
+msgid "Select the WooCommerce button type."
+msgstr "Selecciona el tipo de botón de WooCommerce."
+
+#: lib/controller/class-products.php:137
+msgid "Add quick purchase button type"
+msgstr "Añadir un tipo de botón de compra rápida"
+
+#: lib/controller/class-products.php:95 lib/controller/class-products.php:249
+msgid "Display alert when product is added to the cart."
+msgstr "Mostrar una alerta cuando el producto ha sido añadido al carrito."
+
+#: lib/controller/class-products.php:94 lib/controller/class-products.php:248
+msgid "Add ajax add to cart alert"
+msgstr "Añade una alerta Ajax al añadir al carrito"
+
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:175
+msgctxt "Plugin Installer"
+msgid "Favorites"
+msgstr "Favoritos"
+
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:174
+msgctxt "Plugin Installer"
+msgid "Recommended"
+msgstr "Recomendado"
+
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:173
+msgctxt "Plugin Installer"
+msgid "Popular"
+msgstr "Popular"
+
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:172
+msgctxt "Plugin Installer"
+msgid "Featured"
+msgstr "Destacado"
+
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:170
+msgctxt "Plugin Installer"
+msgid "Beta Testing"
+msgstr "Pruebas beta"
+
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:167
+msgid "Search Results"
+msgstr "Resultados de la búsqueda"
+
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/view/suggestions.php:53
+#: lib/view/backend/pages/parts/header.php:13
+msgid "Thanks for using our product! We recommend these extensions that will add new features to stand out your business and improve your sales."
+msgstr "¡Gracias por usar nuestro producto! Recomendamos estas extensiones que añadirán nuevas características para hacer destacar tu negocio y mejorar tus ventas."
+
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Page.php:78
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Page.php:93
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Page.php:94
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/view/suggestions.php:50
+#: lib/view/backend/pages/parts/header.php:11
+#: lib/view/backend/pages/parts/tabs.php:19
+msgid "Suggestions"
+msgstr "Sugerencias"
+
+#: lib/controller/class-products.php:83 lib/controller/class-products.php:237
+msgid "Add products to cart via ajax."
+msgstr "Añade productos al carrito mediante Ajax."
+
+#: lib/controller/class-products.php:82 lib/controller/class-products.php:236
+msgid "Add ajax add to cart"
+msgstr "Añadir Ajax para «Añadir al carrito»"
+
+#: lib/controller/class-products.php:387
+#: lib/view/backend/pages/parts/header.php:17
+#: lib/view/backend/pages/parts/tabs.php:18
+#: vendor_packages/wp-plugin-table-links.php:23
+msgid "Documentation"
+msgstr "Documentación"
+
+#: vendor_packages/wp-notice-plugin-promote.php:62
+msgid "Yes, of course!"
+msgstr "¡Sí, por supuesto!"
+
+#: vendor_packages/wp-notice-plugin-promote.php:54
+msgid "Hello! Thank you for choosing the %s plugin!"
+msgstr "¡Hola! ¡Gracias por elegir el plugin %s!"
+
+#: lib/view/backend/pages/premium.php:89
+msgid "The Quick purchase button allows you to include a direct button in the single products, variable, grouped and virtual products wich redirects user to the checkout page."
+msgstr "El botón de compra rápida te permite incluir un botón de compra directo en los productos individuales, variables, agrupados y productos virtuales que redirige tus usuarios a la página de finalizar compra."
+
+#: vendor_packages/wp-plugin-table-links.php:8
+msgid "Settings"
+msgstr "Ajustes"
+
+#: lib/controller/class-checkout.php:185
+msgid "Simplifies the checkout process removing the policy text."
+msgstr "Simplifica el proceso de pago eliminando el texto de la política del sitio."
+
+#: vendor_packages/wp-notice-plugin-promote.php:67
+msgid "Report a bug"
+msgstr "Informar de un fallo"
+
+#: lib/controller/class-checkout.php:232
+msgid "Remove order details address"
+msgstr "Elimina la dirección de los detalles del pedido"
+
+#: lib/controller/class-checkout.php:209
+msgid "Simplifies the checkout view by removing the payment gateway icons."
+msgstr "Simplifica la vista de la pagina de finalizar compra eliminando los iconos de las pasarelas de pago."
+
+#: lib/controller/class-checkout.php:208
+msgid "Remove checkout gateway icons"
+msgstr "Elimina iconos de las pasarelas de pago"
+
+#: lib/controller/class-checkout.php:197
+msgid "Simplifies the checkout process removing the terms and conditions."
+msgstr "Simplifica el proceso de pago eliminando los términos y condiciones."
+
+#: lib/controller/class-checkout.php:196
+msgid "Remove checkout terms and conditions"
+msgstr "Elimina los términos y condiciones de pago"
+
+#: lib/controller/class-checkout.php:161
+msgid "Simplifies the checkout process removing the shipping address."
+msgstr "Simplifica el proceso de pago eliminando la dirección de envío."
+
+#: lib/controller/class-checkout.php:151
+msgid "Phone"
+msgstr "Teléfono"
+
+#: lib/controller/class-checkout.php:150
+msgid "Company"
+msgstr "Empresa"
+
+#: lib/controller/class-checkout.php:149
+msgid "Address 2"
+msgstr "Direccion 2"
+
+#: lib/controller/class-checkout.php:148
+msgid "Address 1"
+msgstr "Direccion 1"
+
+#: lib/controller/class-checkout.php:147
+msgid "Postcode"
+msgstr "Código postal"
+
+#: lib/controller/class-checkout.php:146
+msgid "City"
+msgstr "Ciudad"
+
+#: lib/controller/class-checkout.php:145
+msgid "State"
+msgstr "Provincia"
+
+#: lib/controller/class-checkout.php:144
+msgid "Country"
+msgstr "País"
+
+#: lib/controller/class-checkout.php:142
+msgid "First Name"
+msgstr "Nombre"
+
+#: lib/controller/class-checkout.php:129
+msgid "Add custom class to cart table"
+msgstr "Añadir una clase personalizada a la tabla del carrito"
+
+#: lib/controller/class-checkout.php:121
+msgid "Leave coupon form"
+msgstr "Dejar formulario del cupón"
+
+#: lib/controller/class-checkout.php:104
+msgid "Price"
+msgstr "Precio"
+
+#: lib/controller/class-checkout.php:105
+msgid "Quantity"
+msgstr "Cantidad"
+
+#: lib/controller/class-checkout.php:103
+msgid "Name"
+msgstr "Nombre"
+
+#: lib/controller/class-checkout.php:102
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#: lib/controller/class-checkout.php:101
+msgid "Remove"
+msgstr "Eliminar"
+
+#: lib/controller/class-archives.php:81
+msgid "Variable Products"
+msgstr "Productos variables"
+
+#: lib/controller/class-archives.php:80
+msgid "Virtual Products"
+msgstr "Produtos virtuales"
+
+#: lib/controller/class-archives.php:79
+msgid "Grouped Products"
+msgstr "Productos agrupados"
+
+#: lib/controller/class-archives.php:78
+msgid "Simple Products"
+msgstr "Productos simples"
+
+#: lib/controller/class-archives.php:44 lib/controller/class-archives.php:55
+#: lib/view/frontend/class-archives.php:49
+msgid "Archives"
+msgstr "Archivos"
+
+#: lib/view/backend/pages/premium.php:87
+msgid "Quick purchase"
+msgstr "Compra rápida"
+
+#: lib/view/backend/pages/premium.php:30
+msgid "Get Support"
+msgstr "Obtener soporte"
+
+#: lib/controller/class-premium.php:39 lib/view/backend/pages/premium.php:18
+#: vendor_packages/wp-plugin-table-links.php:13
+msgid "Premium"
+msgstr "Premiun"
+
+#: lib/controller/class-products.php:172 lib/controller/class-products.php:388
+#: lib/view/backend/pages/premium.php:28
+#: vendor_packages/wp-notice-plugin-promote.php:75
+msgid "Purchase Now"
+msgstr "Comprar ahora"
+
+#: lib/controller/class-archives.php:91 lib/controller/class-products.php:122
+#: lib/view/backend/pages/parts/header.php:16
+msgid "Purchase"
+msgstr "Comprar"
+
+#: lib/controller/class-products.php:66 lib/controller/class-products.php:77
+msgid "Products"
+msgstr "Productos"
+
+#: lib/controller/class-general.php:114 lib/controller/class-products.php:162
+#: lib/controller/class-products.php:322
+msgid "Cart"
+msgstr "Carrito"
+
+#: lib/controller/class-archives.php:67 lib/controller/class-archives.php:101
+#: lib/controller/class-checkout.php:78 lib/controller/class-checkout.php:90
+#: lib/controller/class-checkout.php:167 lib/controller/class-checkout.php:179
+#: lib/controller/class-checkout.php:191 lib/controller/class-checkout.php:203
+#: lib/controller/class-checkout.php:215 lib/controller/class-checkout.php:227
+#: lib/controller/class-checkout.php:239 lib/controller/class-general.php:78
+#: lib/controller/class-general.php:90 lib/controller/class-general.php:101
+#: lib/controller/class-general.php:134 lib/controller/class-products.php:89
+#: lib/controller/class-products.php:101 lib/controller/class-products.php:113
+#: lib/controller/class-products.php:132 lib/controller/class-products.php:182
+#: lib/controller/class-products.php:243 lib/controller/class-products.php:255
+#: lib/controller/class-products.php:269 lib/controller/class-products.php:293
+msgid "No"
+msgstr "No"
+
+#: lib/controller/class-archives.php:66 lib/controller/class-archives.php:100
+#: lib/controller/class-checkout.php:77 lib/controller/class-checkout.php:89
+#: lib/controller/class-checkout.php:166 lib/controller/class-checkout.php:178
+#: lib/controller/class-checkout.php:190 lib/controller/class-checkout.php:202
+#: lib/controller/class-checkout.php:214 lib/controller/class-checkout.php:226
+#: lib/controller/class-checkout.php:238 lib/controller/class-general.php:77
+#: lib/controller/class-general.php:89 lib/controller/class-general.php:103
+#: lib/controller/class-products.php:88 lib/controller/class-products.php:100
+#: lib/controller/class-products.php:112 lib/controller/class-products.php:131
+#: lib/controller/class-products.php:181 lib/controller/class-products.php:242
+#: lib/controller/class-products.php:254 lib/controller/class-products.php:268
+#: lib/controller/class-products.php:292
+msgid "Yes"
+msgstr "Sí"
+
+#: lib/controller/class-general.php:55 lib/controller/class-general.php:65
+msgid "General"
+msgstr "General"
+
+#. Author of the plugin
+#: woocommerce-direct-checkout.php
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/view/suggestions.php:82
+#: lib/view/backend/pages/parts/header.php:37
+msgid "QuadLayers"
+msgstr "QuadLayers"
+
+#: lib/controller/class-archives.php:82
+msgid "Downloadable Products"
+msgstr "Productos descargables"
+
+#: lib/controller/class-backend.php:65 lib/controller/class-backend.php:73
+#: lib/controller/class-products.php:339
+msgid "Direct Checkout"
+msgstr "Direct Checkout"
+
+#: lib/controller/class-checkout.php:184
+msgid "Remove checkout policy text"
+msgstr "Elimina el texto de la política del sitio de la página de finalizar compra"
+
+#: lib/controller/class-checkout.php:173
+msgid "Simplifies the checkout process removing the order notes."
+msgstr "Simplifica el proceso de pago eliminando las notas de los pedidos."
+
+#: lib/controller/class-checkout.php:160
+msgid "Remove checkout shipping address"
+msgstr "Eliminar la dirección de envíos de la pagina de finalizar compra"
+
+#: lib/controller/class-checkout.php:143
+msgid "Last Name"
+msgstr "Apellidos"
+
+#: lib/controller/class-checkout.php:137
+msgid "Simplifies the checkout process removing the unnecessary checkout fields."
+msgstr "Simplifica el proceso de finalizar compra eliminando campos de pago innecesarios."
+
+#: lib/controller/class-checkout.php:55 lib/controller/class-checkout.php:66
+#: lib/controller/class-general.php:115 lib/controller/class-general.php:135
+#: lib/controller/class-products.php:163 lib/controller/class-products.php:323
+#: lib/view/frontend/class-general.php:64
+#: lib/view/frontend/class-general.php:81
+msgid "Checkout"
+msgstr "Finalizar compra"
+
+#: lib/controller/class-checkout.php:123
+msgid "Remove coupon toggle"
+msgstr "Eliminar alternar cupón"
+
+#: lib/controller/class-checkout.php:122
+msgid "Remove coupon form"
+msgstr "Eliminar formulario del cupón"
+
+#: lib/controller/class-checkout.php:116
+msgid "Simplifies the checkout process removing the coupon form."
+msgstr "Simplifica el proceso de pago eliminando el formulario del cupón."
+
+#: lib/controller/class-archives.php:94
+msgid "Add quick view button"
+msgstr "Añadir botón de vista rápida"
+
+#: lib/view/frontend/class-general.php:81
+msgid "View cart"
+msgstr "Ver carrito"
+
+#: lib/controller/class-general.php:116 lib/controller/class-general.php:136
+msgid "Custom URL"
+msgstr "URL personalizada"
+
+#. Plugin Name of the plugin
+#: woocommerce-direct-checkout.php
+msgid "WooCommerce Direct Checkout"
+msgstr "WooCommerce Direct Checkout"
+
+#: lib/controller/class-checkout.php:115
+msgid "Remove checkout coupon form"
+msgstr "Eliminar formulario del cupón de la pagina de finalizar compra"
+
+#: lib/controller/class-checkout.php:71
+msgid "Add cart to checkout"
+msgstr "Añadir carrito a la pagina de finalizar compra"
+
+#: lib/controller/class-general.php:96
+msgid "Add to cart button behavior."
+msgstr "Comportamiento del botón de añadir al carrito."
+
+#: lib/view/backend/pages/premium.php:82
+msgid "This is especially useful for the variable products because it allows users to select the products attributes and include directly into the cart."
+msgstr "Esto es especialmente útil para los productos variables porque permite a los usuarios seleccionar los atributos de los productos e incluirlos directamente en el carrito."
+
+#: lib/view/backend/pages/premium.php:79
+msgid "This option allows you to include a button which displays a quick view in the WooCommerce shop page and products categories."
+msgstr "Esta opción te permite incluir un botón que muestra una vista rápida en la página de principal de WooCommerce y en las categorías de los productos."
+
+#: lib/view/backend/pages/premium.php:77
+msgid "Quick view in product archives"
+msgstr "Vista rápida en los archivos de productos"
+
+#: lib/view/backend/pages/premium.php:71
+msgid "Quick purchase on single products"
+msgstr "Compra rápida en productos individuales"
+
+#. translators: %s
+#: lib/view/backend/pages/premium.php:40
+msgid "%s allows you to include the cart form in the checkout page allowing your users to edit the cart and confirm the order on the same page."
+msgstr "%s te permite incluir el formulario del carrito en la página de pagos, lo que permite a los usuarios editar el carrito y confirmar el pedido en la misma página."
+
+#: lib/view/backend/pages/premium.php:67
+msgid "This option allows you to redirect your users directly to the checkout page reducing the total checkout process in one step."
+msgstr "Esta opción te permite redirigir a los usuarios directamente a finalizar compra, lo que permite reducir el proceso de pago a un solo paso."
+
+#: lib/view/backend/pages/premium.php:53
+msgid "This option allows you to simplify the checkout page by removing the two columns in the checkout page."
+msgstr "Esta opción te permite simplificar la página de finalizar compra eliminando las dos columnas."
+
+#: lib/controller/class-checkout.php:220 lib/view/backend/pages/premium.php:51
+msgid "Remove checkout columns"
+msgstr "Eliminar columnas al finalizar compra"
+
+#: lib/controller/class-checkout.php:136 lib/view/backend/pages/premium.php:45
+msgid "Remove checkout fields"
+msgstr "Eliminar campos al finalizar compra"
+
+#: lib/controller/class-checkout.php:96
+msgid "Include these fields inside the checkout cart."
+msgstr "Incluye estos campos dentro del carrito al finalizar compra."
+
+#: lib/view/backend/pages/premium.php:65
+msgid "Checkout redirect"
+msgstr "Redireccionar finalizar compra"
+
+#: lib/controller/class-archives.php:95
+msgid "Add product quick view modal button."
+msgstr "Añadir botón de vista rápida emergente al producto."
+
+#. translators: %s
+#: lib/view/backend/pages/premium.php:24
+msgid "%s allows you to simplifies the checkout process by skipping the shopping cart page. This plugin allows you to redirect your customers directly to the checkout page and includes the cart inside the checkout page."
+msgstr "%s te permite simplificar el proceso de pagos omitiendo la página del carrito de compras. Este plugin te permite redirigir a tus clientes directamente a la página de finalizar compra e incluir el carrito dentro de la misma."
+
+#. Description of the plugin
+#: woocommerce-direct-checkout.php
+msgid "Simplifies the checkout process to improve your sales rate."
+msgstr "Simplifica el proceso de pago para incrementar tus ventas. "
+
+#: lib/controller/class-general.php:67
+msgid "Simplifies the checkout process."
+msgstr "Simplifica el proceso de pago."
+
+#: lib/controller/class-general.php:71
+msgid "Added to cart alert"
+msgstr "Alerta de añadido al carrito"
+
+#: lib/controller/class-products.php:300
+msgid "Add quick purchase custom class."
+msgstr "Añadir una clase personalizada al botón de compra rápida"
+
+#: lib/controller/class-products.php:309
+msgid "Add quick purchase custom text."
+msgstr "Añadir un texto personalizado al botón de compra rápida"
+
+#: lib/controller/class-products.php:169
+msgid "Add a custom text to the quick purchase button."
+msgstr "Añadir un texto personalizado al botón de compra rápida"
+
+#: lib/controller/class-products.php:156 lib/controller/class-products.php:316
+msgid "Redirect quick purchase to"
+msgstr "Redirigir compra rápida a"
+
+#: lib/controller/class-products.php:168 lib/controller/class-products.php:307
+msgid "Add quick purchase text"
+msgstr "Añadir texto de compra rápida"
+
+#: lib/controller/class-general.php:108
+msgid "Added to cart redirect to"
+msgstr "Añadido al carrito «redirigir a»"
+
+#: lib/controller/class-products.php:125 lib/controller/class-products.php:285
+msgid "Add quick purchase button"
+msgstr "Añadir botón de compra directa"
+
+#: lib/controller/class-archives.php:88 lib/controller/class-products.php:119
+#: lib/controller/class-products.php:276
+msgid "Replace \"Add to cart\" text with this text."
+msgstr "Remplazar el texto «Añadir al carrito» con este texto"
+
+#: lib/controller/class-products.php:149 lib/controller/class-products.php:298
+msgid "Add quick purchase class"
+msgstr "Añadir clase a la compra rápida"
+
+#: lib/controller/class-products.php:126
+msgid "Add a quick purchase button to the products pages."
+msgstr "Añadir botón de compra rápida a las paginas de los productos"
+
+#: lib/controller/class-products.php:150
+msgid "Add a custom class to the quick purchase button."
+msgstr "Añadir una clase personalizada al botón de compra rápida."
+
+#: lib/controller/class-products.php:175
+msgid "Add default attributes in variable products"
+msgstr "Añadir atributos por defecto a los productos variables."
+
+#: lib/controller/class-products.php:287
+msgid "Add quick purchase button to single product page."
+msgstr "Añadir botón de compra rápida a las páginas de producto."
+
+#: lib/controller/class-checkout.php:95
+msgid "Add cart to checkout fields"
+msgstr "Añadir carrito a los campos de finalizar compra"
+
+#: lib/controller/class-general.php:95
+msgid "Added to cart redirect"
+msgstr "Redirección al añadir al carrito"
+
+#: lib/controller/class-checkout.php:172
+msgid "Remove checkout order comments"
+msgstr "Quitar notas del pedido de la página de pago"
+
+#: lib/controller/class-checkout.php:124
+msgid "Move to checkout order"
+msgstr "Mover a la página de finalizar pedido"
+
+#: lib/controller/class-archives.php:72
+msgid "Replace Add to cart text in"
+msgstr "Remplazar el texto «Añadir al carrito» en"
+
+#: lib/view/backend/pages/premium.php:73
+msgid "If you want to give the option to the user to make a direct purchase or the default add to cart product you can include a direct purchase button to the products page."
+msgstr "Si quieres ofrecerle a tus usuarios la opción de realizar una compra directa o el botón predeterminado para añadir al carrito, puedes incluir un botón de compra directa en la página de producto."
+
+#: lib/view/backend/pages/premium.php:34
+msgid "One page checkout"
+msgstr "Pago en un sola página"
+
+#: lib/controller/class-archives.php:60 lib/controller/class-archives.php:61
+#: lib/controller/class-products.php:106 lib/controller/class-products.php:107
+#: lib/controller/class-products.php:262 lib/controller/class-products.php:264
+msgid "Replace Add to cart text"
+msgstr "Remplazar el texto «Añadir al carrito»"
+
+#: lib/controller/class-archives.php:87 lib/controller/class-products.php:118
+#: lib/controller/class-products.php:274
+msgid "Replace Add to cart text content"
+msgstr "Remplazar contenido del texto «Añadir al carrito»"
+
+#: lib/controller/class-general.php:121
+msgid "Added to cart redirect to custom url"
+msgstr "Redirección personalizada al añadir un producto al carrito"
+
+#: lib/controller/class-products.php:157
+msgid "Redirect the quick purchase button to the cart or checkout page."
+msgstr "Redirigir el botón de compra rápida al carrito o a la página de finalizar compra."
+
+#: lib/controller/class-products.php:318
+msgid "Redirect quick purchase to the cart or checkout page."
+msgstr "Redirigir el botón de compra rápida al carrito o a la página de finalizar compra."
+
+#: lib/controller/class-products.php:176
+msgid "Add default attributes in all variable products to avoid disabled Add to cart button."
+msgstr "Añade los atributos predeterminados en todos los productos variables para evitar que el botón «Añadir al carrito» aparezca desactivado."
+
+#. Author URI of the plugin
+#: woocommerce-direct-checkout.php
+msgid "https://quadlayers.com"
+msgstr "https://quadlayers.com"
+
+#: lib/controller/class-checkout.php:130
+msgid "Add a custom class to the cart table form in the checkout."
+msgstr "Añadir una clase personalizada a la tabla del carrito en la página de finalizar compra."
+
+#: lib/controller/class-checkout.php:72
+msgid "Simplifies the checkout process by including the shopping cart page in the checkout.\t"
+msgstr "Simplifica el proceso de pago, incluyendo la página del carrito de compras dentro de la página de finalizar compra.\t"
+
+#: lib/controller/class-archives.php:73
+msgid "Replace the \"Add to cart\" text for product types."
+msgstr "Reemplazar el texto «Añadir al carrito» en tipos de producto."
+
+#: lib/view/backend/pages/premium.php:47
+msgid "Our checkout settings allow you to easily remove unnecessary fields, reducing the time users spend on completing fields such as order comments, shipping address, coupon form, policy text, and terms and conditions."
+msgstr "Nuestros ajustes te permiten eliminar fácilmente los campos innecesarios y reducir el tiempo que el usuario tarda en completarlos. Por ejemplo, las notas del pedido, la dirección de envío, el formulario de cupón, el texto de la política y los términos y condiciones."

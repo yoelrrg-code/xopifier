@@ -1,0 +1,15 @@
+# Logs y temporales
+*.log
+php_errors.log
+.DS_Store
+
+# Archivos de configuración sensible de WordPress
+wp-config.php
+
+# Node modules o dependencias si hubiera
+node_modules/
+vendor/
+
+# Archivos de entorno
+.env
+.env.*

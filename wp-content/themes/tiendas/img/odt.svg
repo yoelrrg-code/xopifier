@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="17px" viewBox="0 0 15 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" fill="#00B231">
+            <g id="pdf" transform="translate(3, 0)">
+                <path d="M12,4.5 L12,14 C12,15.1045695 11.1045695,16 10,16 L9,16 L9,15 L10,15 C10.5522847,15 11,14.5522847 11,14 L11,4.5 L9,4.5 C8.17157288,4.5 7.5,3.82842712 7.5,3 L7.5,1 L2,1 C1.44771525,1 1,1.44771525 1,2 L1,11 L0,11 L0,2 C0,0.8954305 0.8954305,0 2,0 L7.5,0 L12,4.5 Z" id="Shape"></path>
+            </g>
+            <text id="ODT" font-family="Helvetica-Bold, Helvetica" font-size="4" font-weight="bold">
+                <tspan x="0" y="16">ODT</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

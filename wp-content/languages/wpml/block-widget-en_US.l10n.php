@@ -1,0 +1,2 @@
+<?php
+return ['messages'=>['90970611198c198be5d76c66b3bfbb03'=>'Prices shown are in U.S. dollars (USD).','Copyright © 2024 - LUGAR 921. Todos los derechos reservados.'=>'Copyright © 2024 - LUGAR 921. All Rights Reserved.','Todos los precios están expresados en dólares estadounidenses (USD).'=>'Prices shown are in U.S. dollars (USD).','d6c4cbc5cfe1c349e13089cbc361350f'=>'Copyright © 2024 - LUGAR 921. All Rights Reserved.']];
