@@ -1,8 +1,151 @@
 <?php
-function step_3_tabs_other_languages($design_id) {
+// function step_3_tabs_other_languages($design_id) {
+//     return '
+//         <div class="languages py-4">
+//             '.step_3_tabs_languages_form($design_id).'
+//         </div>
+//     ';
+// }
+
+function step_3_tabs_other_languages($design_id){
+    if(isset($design_id) && $design_id != 0 && $design_id != ''){
+        $store = get_field('store', $design_id);
+    }else{
+        $userid = get_current_user_id();
+        $store = get_posts(array(
+            'post_type' => 'initial-stage',
+            'post_status' => 'publish',
+            'posts_per_page' => 1,
+            'meta_query' => array(
+                array(
+                    'key' => 'user',
+                    'value' => $userid,
+                    'compare' => '='
+                )
+            )
+        ));
+        $store = $store[0];
+    }
+
+    $langs = get_field('languages', 'option');
+    $languages = [];
+    foreach($langs as $lang){
+        $languages[] = $lang['language'];
+    }
+    $aditional_services = get_field('aditional_services', $store->ID);
+    $tab_count = 1;
+    
+    $services_tabs = '';
+    $services_contents = '';
+
+    $step3_status = get_step3_status($store->ID);
+
+    // var_dump($step3_status);exit;
+
+    $service_settings = get_field('service_settings', 'option')['services'];
+
+    if(is_array($service_settings) and count($service_settings) > 0){
+        foreach ($service_settings as $k => $service) {
+            if($service['type'] == 'extra' && $service['id'] != 'payment_methods') {
+                $tab_count++;
+            }
+        }
+    }
+
+    $tab_width = (100/$tab_count) - 1;
+
+    $active_services = [];
+
+    // var_dump($store->ID, $aditional_services);
+
+    if(is_array($aditional_services) and count($aditional_services) > 0){
+        foreach ($aditional_services as $k => $service) {
+            if($service['type'] == 'extra') {
+                $active_services[] = [
+                    'id' => $service['id'],
+                    'service' => $service['service'],
+                    'active' => $service['active']
+                ];
+            }
+        }
+    }
+    
+    if(is_array($service_settings) and count($service_settings) > 0){
+        foreach ($service_settings as $k => $service) {
+            if($service['type'] == 'extra' && $service['id'] != 'payment_methods') {
+
+                // $tab = remove_accents(str_replace(' ', '-', strtolower($service['title'])));
+                $tab = $service['id'];
+                // $tab = str_replace('(', '', $tab);
+                // $tab = str_replace(')', '', $tab);
+
+                $service_title = $service['title'];
+                if($service['id'] == 'reviews'){
+                    $service_title = __('Reseñas', 'xopifier');
+                }
+                if($service['id'] == 'faqs'){
+                    $service_title = __('FAQs', 'xopifier');
+                }
+                if($service['id'] == 'custom'){
+                    $service_title = __('Página adicional', 'xopifier');
+                }
+
+                $services_tabs .= '
+                    <li class="nav-item service-tab" role="presentation" style="width: '.$tab_width.'%;">
+                        <button class="nav-link w-100 sub-item sub-tab '.($service['id'] == 'reviews' ? 'active' : '').' extra '.get_step3_tab_status($step3_status, 'info-service-'.$tab.'-tab').'" sub-tab="info-service-'.$tab.'-tab" id="info-service-'.$tab.'-tab" data-bs-toggle="tab" data-bs-target="#info-service-'.$tab.'" type="button" role="tab" aria-controls="service-'.$tab.'" aria-selected="'.($service['id'] == 'reviews' ? 'true' : 'false').'">
+                            '.$service_title.'
+                            <img src="'.get_template_directory_uri().'/img/done.svg" />
+                        </button>
+                    </li>
+                ';
+
+                switch($service['id']){
+                    case 'reviews':{
+                        $services_contents .= '
+                            <div class="tab-pane fade show active" id="info-service-'.$tab.'" role="tabpanel" aria-labelledby="service-'.$tab.'-tab">
+                                '.step_3_tabs_info_reviews($design_id, 'info-service-'.$tab.'-tab', find_active_service($service['id'], $active_services), $service['price']).'
+                            </div>
+                        ';
+                        break;
+                    }
+                    case 'faqs':{
+                        $services_contents .= '
+                            <div class="tab-pane fade" id="info-service-'.$tab.'" role="tabpanel" aria-labelledby="service-'.$tab.'-tab">
+                                '.step_3_tabs_info_faqs($design_id, 'info-service-'.$tab.'-tab', find_active_service($service['id'], $active_services), $service['price']).'
+                            </div>
+                        ';
+                        break;
+                    }
+                    case 'custom':{
+                        $services_contents .= '
+                            <div class="tab-pane fade" id="info-service-'.$tab.'" role="tabpanel" aria-labelledby="service-'.$tab.'-tab">
+                                '.step_3_tabs_info_custom($design_id, 'info-service-'.$tab.'-tab', find_active_service($service['id'], $active_services), $service['price']).'
+                            </div>
+                        ';
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
     return '
-        <div class="languages py-4">
-            '.step_3_tabs_languages_form($design_id).'
+        <div class="info">
+            <ul class="nav nav-tabs d-flex justify-content-md-between justify-content-sm-start justify-content-start" id="myTabOther" role="tablist">
+                '.$services_tabs.'
+                <li class="nav-item" role="presentation" style="width: '.$tab_width.'%;">
+                    <button class="nav-link sub-item sub-tab w-100 extra '.get_step3_tab_status($step3_status, 'other-languages-tab').'" sub-tab="other-languages-tab" id="other-languages-tab" data-bs-toggle="tab" data-bs-target="#other-languages" type="button" role="tab" aria-controls="other-languages" aria-selected="false">
+                        '.__('Otros idiomas', 'xopifier').'
+                        <img src="'.get_template_directory_uri().'/img/done.svg" />
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContentOther">
+                '.$services_contents.'
+                <div class="tab-pane fade" id="other-languages" role="tabpanel" aria-labelledby="other-languages-tab">
+                    '.step_3_tabs_languages_form($design_id).'
+                </div>
+            </div>
         </div>
     ';
 }
@@ -159,6 +302,7 @@ function step_3_tabs_languages_form($design_id){
             <input type="hidden" name="store_id" value="'.$store->ID.'" />
             <input type="hidden" name="total_price" value="'.$total_price.'" />
             <input type="hidden" name="language_price" value="'.$base_language_price.'" />
+            <input type="hidden" name="nonce" value="'.wp_create_nonce(xopifier_TITLE_FOR_NONCE).'" />
 
             <div class="row">
                 <div class="pe-md-5 pe-sm-auto pe-auto col-md-8 col-sm-12 col-12 main-column position-relative '.($is_active ? '' : 'disabled').'">

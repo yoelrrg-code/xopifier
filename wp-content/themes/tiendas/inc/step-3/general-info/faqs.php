@@ -44,6 +44,7 @@ function step_3_tabs_info_faqs($design_id, $tab_id, $is_active, $service_price) 
             <input type="hidden" name="tab_id" value="'.$tab_id.'" />
             <input type="hidden" name="service_price" value="'.$service_price.'" />
             <input type="hidden" name="total_price" value="'.$total_price.'" />
+            <input type="hidden" name="nonce" value="'.wp_create_nonce(xopifier_TITLE_FOR_NONCE).'" />
 
             <div class="row">
                 <div class="pe-md-5 pe-sm-auto pe-auto col-md-7 col-sm-12 col-12 main-column position-relative '.($is_active ? '' : 'disabled').'">

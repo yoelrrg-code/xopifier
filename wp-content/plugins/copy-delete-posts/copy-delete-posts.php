@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Copy & Delete Posts
  * Description: The best solution to easily make duplicates of your posts & pages, and delete them in one go.
- * Version: 1.5.4
+ * Version: 1.5.5
  * Text Domain: copy-delete-posts
  * Author: Inisev
  * Author URI: https://inisev.com
@@ -31,7 +31,7 @@ analyst_init(array(
  * @since 1.0.0
  */
 // Plugin constants
-define('CDP_VERSION', '1.5.4');
+define('CDP_VERSION', '1.5.5');
 define('CDP_WP_VERSION', get_bloginfo('version'));
 define('CDP_SCRIPT_DEBUG', false);
 define('CDP_ROOT_DIR', __DIR__);
@@ -159,8 +159,12 @@ add_action('admin_init', function () {
         return;
 
     if (get_option('_cdp_redirect', false)) {
-        delete_option('_cdp_redirect', false);
-        wp_redirect(admin_url('admin.php?page=copy-delete-posts'));
+        delete_option('_cdp_redirect');
+
+        $is_bulk_action = isset($_REQUEST['action']) && $_REQUEST['action'] === 'activate-selected';
+        $is_bulk_action_alt = isset($_REQUEST['action2']) && $_REQUEST['action2'] === 'activate-selected';
+        $is_multi_activate = isset($_GET['activate-multi']) && $_GET['activate-multi'] === 'true';
+        if (!($is_bulk_action || $is_bulk_action_alt || $is_multi_activate)) wp_redirect(admin_url('admin.php?page=copy-delete-posts'));
     }
 
     global $cdp_premium;
@@ -507,8 +511,8 @@ add_action('admin_bar_menu', function ($admin_bar) {
         $icon = '<span class="cdp-admin-bar-icon" data-plug-path="' . $cdp_plug_url . '" data-this-id="' . get_the_ID() . '"></span>';
         $admin_bar->add_menu(array(
             'id' => 'cdp-copy-bar-x',
-            'parent' => null,
-            'group' => null,
+            'parent' => '',
+            'group' => '',
             'title' => $icon . __('Copy this', 'copy-delete-posts'),
             'href' => '#',
             'meta' => array('class' => 'cdp-admin-bar-copy', 'target' => '_self')
@@ -533,8 +537,8 @@ add_action('admin_bar_menu', function ($admin_bar) {
         $data = cdp_notifications_menu();
         $admin_bar->add_menu(array(
             'id' => 'wp-admin-copy-and-delete-posts',
-            'parent' => null,
-            'group' => null,
+            'parent' => '',
+            'group' => '',
             'title' => $data['html'],
             'href' => '#',
             'meta' => array(
@@ -683,7 +687,7 @@ add_action('post_submitbox_start', function () {
     $c = ($type != 'post' && $type != 'page' && (isset($g['cdp-content-custom']) && $g['cdp-content-custom'] == 'true'));
 
     if (($a || $b || $c) && $pagenow != 'post-new.php')
-        echo '<div id="cdp-copy-btn"><a class="cdp-copy-btn-editor" href="#">' . __('Copy this post', 'copy-delete-posts') . '</a></div>';
+        echo '<div id="cdp-copy-btn"><a class="cdp-copy-btn-editor" href="#">' . __('Copy this', 'copy-delete-posts') . '</a></div>';
 });
 /** –– * */
 /** –– **\
@@ -965,6 +969,7 @@ function cdp_default_global_options() {
         'cdp-premium-hide-tooltip' => 'false',
         'cdp-premium-replace-domain' => 'false',
         'cdp-delete-on-uninstall' => 'false',
+        'cdp-take-over-original-slug' => 'false',
         'cdp-menu-in-settings' => 'false'
     );
 }

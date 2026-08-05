@@ -66,6 +66,12 @@ jQuery(document).ready(function ($) {
     $('#store-about-info-form').validate({
         lang: 'en',
         rules: {
+            "field-store-link": {
+                required: true
+            },
+            "field-store-name": {
+                required: true
+            },
             "field-store-description": {
               required: true
             }

@@ -61,7 +61,6 @@ var updateProgressBar = (href) => {
 
 
 jQuery(document).ready(function ($) {
-
     //============================================================================================================================================================
 	//form steps validations
 	//============================================================================================================================================================
@@ -620,20 +619,20 @@ jQuery(document).ready(function ($) {
     });
 
 	//aqui cargo las categorias agregadas en el paso de las categorias al selector de categorias del paso de los productos
-	$('.btn-next[href="#step-1-form-8"]').click(function(){
-		categoryList = [];
-		$('#field-fromPCProductCategory').html('');
-		$('#field-fromLinkProductCategory').html('');
-		$('.category-repeater-fields').find('.form-control').each(function(){
-			if($(this).val() != ''){
-				categoryList.push($(this).val());
-			}
-		});
-		categoryList.forEach((item) => {
-			$('#field-fromPCProductCategory').append('<option value="'+item+'">'+item+'</option>');
-			$('#field-fromLinkProductCategory').append('<option value="'+item+'">'+item+'</option>');
-		});
-	});
+	// $('.btn-next[href="#step-1-form-8"]').click(function(){
+	// 	categoryList = [];
+	// 	$('#field-fromPCProductCategory').html('');
+	// 	$('#field-fromLinkProductCategory').html('');
+	// 	$('.category-repeater-fields').find('.form-control').each(function(){
+	// 		if($(this).val() != ''){
+	// 			categoryList.push($(this).val());
+	// 		}
+	// 	});
+	// 	categoryList.forEach((item) => {
+	// 		$('#field-fromPCProductCategory').append('<option value="'+item+'">'+item+'</option>');
+	// 		$('#field-fromLinkProductCategory').append('<option value="'+item+'">'+item+'</option>');
+	// 	});
+	// });
 
 	//al clickar cualquier boton que sea para ir al siguiente paso
 	$('a[href^="#step-1-form-"]:not(.step-back)').click(function(e){//forward function
@@ -1189,8 +1188,6 @@ jQuery(document).ready(function ($) {
 
 				$(this).click(function(){
 
-					console.log($(this));
-
 					var form_radio = $(this);
 
 					if(form_radio.hasClass('required')){
@@ -1211,6 +1208,24 @@ jQuery(document).ready(function ($) {
 						}
 						form_radio.parents('.sub-step').find('.btn-plus').addClass('disabled');
 						form_radio.parents('.sub-step').find('.btn-plus-categ').addClass('disabled');
+					}
+
+					var radio_name = form_radio.attr('name');
+					var radio_target = form_radio.attr('target');
+
+					if(radio_name == 'field-storeShopifyAccount'){
+						form_radio.parents('.form-box').find('.btn.btn-next').attr('href', '#'+radio_target);
+					}
+
+					if(form_radio.parent('.form-radio').hasClass('has-more')){
+						$('.more-info-block').hide();
+						var more_id = form_radio.attr('id') + '-more';
+						var more = $('.more-info-block#'+more_id);
+						if(form_radio.is(':checked')){
+							more.fadeIn().focus();
+						}else{
+							more.fadeOut();
+						}
 					}
 
 				});

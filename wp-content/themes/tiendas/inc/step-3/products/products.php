@@ -40,6 +40,7 @@ function step_3_tabs_products_extra($design_id) {
             <input type="hidden" name="wsa" value="save-store-products-extra" />
             <input type="hidden" name="disable" value="false" />
             <input type="hidden" name="store_id" value="'.$store->ID.'" />
+            <input type="hidden" name="nonce" value="'.wp_create_nonce(xopifier_TITLE_FOR_NONCE).'" />
             <div class="row">
                 <div class="pe-md-5 pe-sm-auto pe-auto col-md-8 col-sm-12 col-12 main-column position-relative '.($additional_information['included'] ? '' : 'disabled').'">
                     <div class="disabled-overlay"></div>
@@ -321,6 +322,7 @@ function step_3_tabs_products($design_id) {
                         <input type="hidden" name="lang" value="'.ICL_LANGUAGE_CODE.'" />
                         <input type="hidden" name="wsa" value="save-store-products-categories" />
                         <input type="hidden" name="store_id" value="'.$store->ID.'" />
+                        <input type="hidden" name="nonce" value="'.wp_create_nonce(xopifier_TITLE_FOR_NONCE).'" />
                         <div class="row">
                             <div class="pe-md-5 pe-sm-auto pe-auto col-md-8 col-sm-12 col-12">
                                 <h3 class="mb-4"><small>'.__('Categorías ("Colecciones") de productos', 'xopifier').'</small></h3>
@@ -357,7 +359,7 @@ function step_3_tabs_products($design_id) {
                         <input type="hidden" name="base_price" value="'.$service_settings['base_services_price'].'" />
                         <input type="hidden" name="aditional_product_price" value="'.$service_settings['base_service_aditional_products_price'].'" />
                         <input type="hidden" name="products_qty_included" value="'.$service_settings['base_service_products_qty_included'].'" />
-
+                        <input type="hidden" name="nonce" value="'.wp_create_nonce(xopifier_TITLE_FOR_NONCE).'" />
                         <div class="form-loader" style="display: none;"></div>
                         
                         <div class="row products-tab-list" total-price="'.$total_price.'">
@@ -392,7 +394,6 @@ function step_3_tabs_products($design_id) {
                             <div class="col-md-4 col-sm-12 col-12">
                                 <div class="form-tip sticky-top">
                                     <img src="'.get_template_directory_uri().'/img/info.svg'.'" class="form-tip-img" />
-                                    <p>'.__('Los productos que agregues se sumarán a los que ya creaste en el SmartQuiz inicial.', 'xopifier').'</p>
                                     <p>'.__('Recuerda que tu Tienda 1.0 incluye de 1 a 10 productos. Puedes incluir más por un costo extra que te iremos informando en la medida que agregues productos.', 'xopifier').'</p>
                                 </div>
                             </div>
@@ -442,6 +443,7 @@ function step_3_tabs_products($design_id) {
                                 <div class="tab-pane fade" id="frompc" role="tabpanel" aria-labelledby="frompc-tab">
                                     <form id="frm-add-new-product" method="post" enctype="multipart/form-data">
                                         <input type="hidden" name="lang" value="'.ICL_LANGUAGE_CODE.'" />
+                                        <input type="hidden" name="nonce" value="'.wp_create_nonce(xopifier_TITLE_FOR_NONCE).'" />
                                         <div class="field upload mb-3 w-100">
                                             <label class="form-label" for="field-fromPCProductMedia">'.__('Imágenes o animaciones del producto:', 'xopifier').'</label>
                                             <a href="javascript:void(0)" class="d-none field-upload-new-media">'.__('Subir nuevas imágenes o animaciones del producto:', 'xopifier').'</a>
@@ -792,7 +794,6 @@ function step_3_list_products($design_id) {
             <div class="col-md-4 col-sm-12 col-12">
                 <div class="form-tip sticky-top">
                     <img src="'.get_template_directory_uri().'/img/info.svg'.'" class="form-tip-img" />
-                    <p>'.__('Los productos que agregues se sumarán a los que ya creaste en el SmartQuiz inicial.', 'xopifier').'</p>
                     <p>'.__('Recuerda que tu Tienda 1.0 incluye de 1 a 10 productos. Puedes incluir más por un costo extra que te iremos informando en la medida que agregues productos.', 'xopifier').'</p>
                 </div>
             </div>

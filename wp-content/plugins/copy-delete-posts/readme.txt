@@ -2,8 +2,8 @@
 Contributors: CopyDeletePosts, copydelete
 Tags: Duplicate post, Copy posts, Copy pages, Duplicate posts, Duplicate pages
 Requires at least: 4.6
-Tested up to: 6.9.4
-Stable tag: 1.5.4
+Tested up to: 7.0.2
+Stable tag: 1.5.5
 License: GPLv3
 Requires PHP: 5.6
 
@@ -177,127 +177,29 @@ Vietnamese: [Sao chép bài đăng, sao chép trang, sao chép bài đăng tùy 
 
 == Changelog ==
 
+= 1.5.5 =
+* Tested up to WordPress 7.0.2
+* [FIX] Prevented unwanted plugin redirects during bulk activation.
+* [FIX] Added permission validation for post copying and deletion actions to improve security.
+* [FIX] Resolved undefined index notices when accessing plugin settings.
+* [FIX] Handled undefined taxonomy keys during post insertion to prevent errors.
+* [FIX] Resolved deprecated null-to-string conversion warnings for improved PHP compatibility.
+* [ENHANCEMENT] Added a default value for the "Take Over Original Slug" option.
+* [MISC] Updated copy button label text for improved clarity.
+
 = 1.5.4 =
 * Tested up to 6.9.4
 * [FIX] Ensure review banner is hidden on excluded pages and sanitize URLs
-
-= 1.5.3 =
-* [FEATURE] Add dual storage backend with file-based fallback
-
-= 1.5.2 =
-* [FEATURE] Expanded BackupBliss banner visibility to additional sites (a–e range).
-* [FIX] Updated banner dismiss function to support callback handling and improved redirect timing.
-* [FIX] Adjusted admin_init action priority for better execution order and stability.
-* [FIX] Removed version mismatch option after initialization to prevent stale state issues.
-
-= 1.5.1 =
-* Added option to take over the original slug when copying posts (original gets "-old" suffix)
-* Added option to remove all plugin settings upon uninstallation
-* [PRO] Improved license activation flow with automatic activation
-* Fixed typo in MyPopups banner URL
-* Improved backwards compatibility for taxonomy settings
-* Updated slug option description with link to additional settings
-* Improved option descriptions for better clarity
-* Added disabled button styling for better UX
-* Tested up to WordPress 6.9.1
-
-= 1.5.0 =
-* Fixed issues with mailpoet
-* Tested with WP 6.8
-
-= 1.4.9 =
-* Removed optimization logs for users to prevent performance optimizations of the plugin in future
-* [PRO] Improved cross-site duplication of posts
-
-= 1.4.8 =
-* Replace the super admin check with a verification of CDP permission for the current user.
-* Implement a check to ensure the current user has appropriate access rights to the target site before allowing cross-site post copying. This prevents unauthorized users from copying posts to sites they don't have access to.
-
-= 1.4.7 =
-* Tested with WordPress 6.6
-* Minor performance improvements 
-* Improvements for PHP 8 utilization
-* Fixed taxonomy field when editing with quick edit
-
-= 1.4.6 =
-* [NOTE] Changed plugin's author to our company name
-* [NOTE] Tested up with WordPress v6.4.3 
-* [NOTE] Thank you so much for 300,000+ active installs 💚 (12.02.2024)
-
-= 1.4.5 =
-* [PRO/CHANGE] Default type conversion will be now post not page (custom type -> post type by default)
-* [PRO/FIX] Adjusted category duplication/assign method (useful for cross site duplication)
-* [FIX] Resolved issues with custom type category/tags duplication
-* [FIX] Review banner won't show up on post edit pages now
-* [NEW] Added smart taxonomy handler which can assign custom taxonomy to core fields
-* [NOTE] Upgraded analyst module to latest version
-* [NOTE] Tested with WordPress v6.4.2
-* [NOTE] Tested up to PHP v8.3
-
-= 1.4.4 =
-* [Pro] Improved domain replacement 
-* [Pro] Fixed profiles and other modals center position
-* [Pro] Increased stability of the plugin and improved load time
-* [Pro] Fixed cross-subsite taxonomy duplication (categories, tags, etc.)
-* [Pro] Now our plugin won't create new taxonomy if there is existing one by name
-* [Pro] Improved ACF duplication, tested with latest version
-* [Pro] Resolved known bugs with ACF plugin and added support for domain auto-replacement
-* [Pro] Improved featured image and attachment duplication between subsites
-* Tested up with WordPress 6.4.1
-* Added improvements for PHP 8.2
-* Fixed gutenberg copy button, now it will be displayed properly.
-* Updated "Try it out" module which gives each user individual decition about this module
-* Fixed issues with selecting profile, custom rules during bulk duplication
-* Fixed issues within copy modal with incorrect size of fields
-* Adjusted look of sections to make it more "popping off"
-* Front end duplication visually improved
-
-= 1.4.3 =
-* Forced "Try it out" module to be disabled by default, user can still enable it by manually.
-
-= 1.4.2 =
-* Added additional nonce verification
-
-= 1.4.1 =
-* Tested with WP 6.3 RC
-* Added possibility for automatic Elementor Cache clearing after duplication
-* Fixed localization issues, when plugin hanged on previously selected language
-* Updated all shared modules to their latest versions
-
-= 1.4.0 =
-* Fixed tooltip attribute in Manual Cleanup section
-* Tested with PHP 8.2 and WordPress 6.2.2
-* Added support for WooCommerce Price per User options
-* Prepared for further expand of supported extensions
-* Fixed incorrect ID naming in sidebar menu
-* Upgraded carrousel banner module version
-
-= 1.3.9 =
-* Tested up with WordPress 6.2
-* Removed two unused modules
-* Updated carrousel module
-* Fixed old database version compatibility
-* Extended TIF module for everyone
-
-= 1.3.8 =
-* Tested up WordPress 6.2-Beta1
-* [Premium] Added full ACF duplication support
-* Adjusted proper duplication of WooCommerce products
-* Fixed duplication of WooCommerce variations
-* Resolved issues with child-post custom types
-* Extended new module
-* Minimized styling conflicts in custom post type pages
-
-= 1.3.7 =
-* Included new module
-* Fixed issues with deactivation feedback
 * [... and more ...]
 
-= previous =
-Old changelog has been removed due to WordPress limitation of 5000 characters.
-
 == Upgrade Notice ==
-= 1.5.4 =
-What's new in 1.5.4?
-* Tested up to 6.9.4
-* [FIX] Ensure review banner is hidden on excluded pages and sanitize URLs
+= 1.5.5 =
+What's new in 1.5.5?
+* Tested up to WordPress 7.0.2
+* [FIX] Prevented unwanted plugin redirects during bulk activation.
+* [FIX] Added permission validation for post copying and deletion actions to improve security.
+* [FIX] Resolved undefined index notices when accessing plugin settings.
+* [FIX] Handled undefined taxonomy keys during post insertion to prevent errors.
+* [FIX] Resolved deprecated null-to-string conversion warnings for improved PHP compatibility.
+* [ENHANCEMENT] Added a default value for the "Take Over Original Slug" option.
+* [MISC] Updated copy button label text for improved clarity.

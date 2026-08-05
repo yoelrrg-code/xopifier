@@ -20,17 +20,7 @@ function step_3_tabs_info($design_id) {
         $store = $store[0];
     }
 
-    $langs = get_field('languages', 'option');
-    $languages = [];
-    foreach($langs as $lang){
-        $languages[] = $lang['language'];
-    }
-    $aditional_services = get_field('aditional_services', $store->ID);
-    $tab_count = 3;
-    
-    $services_tabs = '';
-    $services_contents = '';
-
+    $tab_count = 0;
     $step3_status = get_step3_status($store->ID);
 
     // var_dump($step3_status);exit;
@@ -46,91 +36,6 @@ function step_3_tabs_info($design_id) {
     }
 
     $tab_width = (100/$tab_count) - 1;
-
-    $active_services = [];
-
-    // var_dump($store->ID, $aditional_services);
-
-    if(is_array($aditional_services) and count($aditional_services) > 0){
-        foreach ($aditional_services as $k => $service) {
-            if($service['type'] == 'extra') {
-                $active_services[] = [
-                    'id' => $service['id'],
-                    'service' => $service['service'],
-                    'active' => $service['active']
-                ];
-            }
-        }
-    }
-
-    function find_active_service($service, $active_services){
-        // var_dump($service, $active_services);
-        foreach($active_services as $serv){
-            if($serv['id'] == $service && $serv['active'] == 1){
-                return 1;
-            }
-        }
-        return 0;
-    }
-    
-    if(is_array($service_settings) and count($service_settings) > 0){
-        foreach ($service_settings as $k => $service) {
-            if($service['type'] == 'extra' && $service['id'] != 'payment_methods') {
-
-                // $tab = remove_accents(str_replace(' ', '-', strtolower($service['title'])));
-                $tab = $service['id'];
-                // $tab = str_replace('(', '', $tab);
-                // $tab = str_replace(')', '', $tab);
-
-                $service_title = $service['title'];
-                if($service['id'] == 'reviews'){
-                    $service_title = __('Reseñas', 'xopifier');
-                }
-                if($service['id'] == 'faqs'){
-                    $service_title = __('FAQs', 'xopifier');
-                }
-                if($service['id'] == 'custom'){
-                    $service_title = __('Página adicional', 'xopifier');
-                }
-
-                $services_tabs .= '
-                    <li class="nav-item service-tab" role="presentation" style="width: '.$tab_width.'%;">
-                        <button class="nav-link w-100 sub-item sub-tab extra '.get_step3_tab_status($step3_status, 'info-service-'.$tab.'-tab').'" sub-tab="info-service-'.$tab.'-tab" id="info-service-'.$tab.'-tab" data-bs-toggle="tab" data-bs-target="#info-service-'.$tab.'" type="button" role="tab" aria-controls="service-'.$tab.'" aria-selected="false">
-                            '.$service_title.'
-                            <img src="'.get_template_directory_uri().'/img/done.svg" />
-                        </button>
-                    </li>
-                ';
-
-                switch($service['id']){
-                    case 'reviews':{
-                        $services_contents .= '
-                            <div class="tab-pane fade" id="info-service-'.$tab.'" role="tabpanel" aria-labelledby="service-'.$tab.'-tab">
-                                '.step_3_tabs_info_reviews($design_id, 'info-service-'.$tab.'-tab', find_active_service($service['id'], $active_services), $service['price']).'
-                            </div>
-                        ';
-                        break;
-                    }
-                    case 'faqs':{
-                        $services_contents .= '
-                            <div class="tab-pane fade" id="info-service-'.$tab.'" role="tabpanel" aria-labelledby="service-'.$tab.'-tab">
-                                '.step_3_tabs_info_faqs($design_id, 'info-service-'.$tab.'-tab', find_active_service($service['id'], $active_services), $service['price']).'
-                            </div>
-                        ';
-                        break;
-                    }
-                    case 'custom':{
-                        $services_contents .= '
-                            <div class="tab-pane fade" id="info-service-'.$tab.'" role="tabpanel" aria-labelledby="service-'.$tab.'-tab">
-                                '.step_3_tabs_info_custom($design_id, 'info-service-'.$tab.'-tab', find_active_service($service['id'], $active_services), $service['price']).'
-                            </div>
-                        ';
-                        break;
-                    }
-                }
-            }
-        }
-    }
 
     return '
         <div class="info">
@@ -153,7 +58,6 @@ function step_3_tabs_info($design_id) {
                         <img src="'.get_template_directory_uri().'/img/done.svg" />
                     </button>
                 </li>
-                '.$services_tabs.'
             </ul>
             <div class="tab-content" id="myTabContentInfo">
                 <div class="tab-pane fade show active" id="info-store" role="tabpanel" aria-labelledby="info-store-tab">
@@ -165,7 +69,6 @@ function step_3_tabs_info($design_id) {
                 <div class="tab-pane fade" id="info-policy" role="tabpanel" aria-labelledby="info-policy-tab">
                     '.step_3_tabs_info_policy($design_id).'
                 </div>
-                '.$services_contents.'
             </div>
         </div>
     ';

@@ -50,6 +50,9 @@ function step_3_tabs_info_about($design_id){
         $store_description = get_field('store_description', $store_data_id);
         $store_slogan_or_phrase = get_field('store_slogan_or_phrase',  $store_data_id);
         $selected_option = get_field('featured_option', $store_data_id);
+
+        $current_store_name = get_field('current_store_name', $store->ID);
+        $current_store_link = get_field('current_store_link', $store->ID);
         
         $store_particular_description = get_field('general_directions', $store_data_id);
         $featured_images_or_videos = get_field('featured_images_or_videos', $store_data_id);
@@ -57,6 +60,9 @@ function step_3_tabs_info_about($design_id){
         $store_description = get_field('current_store_description', $store->ID);
         $store_slogan_or_phrase = '';
         $selected_option = '';
+        
+        $current_store_name = '';
+        $current_store_link = '';
         
         $store_particular_description = '';
         $featured_images_or_videos = '';
@@ -87,17 +93,30 @@ function step_3_tabs_info_about($design_id){
             <input type="hidden" name="lang" value="'.ICL_LANGUAGE_CODE.'" />
             <input type="hidden" name="wsa" value="save-store-about-info" />
             <input type="hidden" name="store_id" value="'.$store->ID.'" />
+            <input type="hidden" name="nonce" value="'.wp_create_nonce(xopifier_TITLE_FOR_NONCE).'" />
             <div class="row">
                 <div class="pe-md-5 pe-sm-auto pe-auto col-md-8 col-sm-12 col-12">
                     <h3 class="mb-4"><small>'.__('Sobre mi tienda', 'xopifier').'</small></h3>
                     <div class="field mb-3">
+                        <label class="form-label small" for="field-store-name">'.__('¿Cuál es el nombre de tu tienda?', 'xopifier').'</label>
+                        <input type="text" class="form-control valid" value="'.$current_store_name.'" id="field-store-name" name="field-store-name" placeholder="'.__('Ej: Mi tienda increíble', 'xopifier').'">
+                        <span class="error"></span>
+                    </div>
+                    <div class="field mb-3">
                         <label class="form-label w-100" for="field-store-description">'.__('Describe tu tienda', 'xopifier').'</label>
-                        <textarea class="form-control mt-2 '.($store_description != '' ? 'valid' : '').'" id="field-store-description" name="field-store-description" placeholder="">'.$store_description.'</textarea>
+                        <p class="mb-2 small">'.__('Procura comunicar qué hace especial a tu tienda. Qué la diferencia de otras quizás parecidas.', 'xopifier').'</p>
+                        <textarea class="form-control mt-2 '.($store_description != '' ? 'valid' : '').'" id="field-store-description" name="field-store-description" placeholder="'.__('Ej: es una selección de productos originales, hechos por talento emegente', 'xopifier').'">'.$store_description.'</textarea>
+                    </div>
+                    <div class="field mb-3">
+                        <label class="form-label small" for="field-store-link">'.__('Si ya promocionas o vendes tus productos en línea, pásanos el link:', 'xopifier').'</label>
+                        <p class="mb-2 small">'.__('Ej: Instagram, Facebook u otras redes sociales; si tienes más de un link, lístalos o sepáralos con comas.', 'xopifier').'</p>
+                        <input type="text" class="form-control '.($current_store_link != '' ? 'valid' : '').'" value="'.$current_store_link.'" id="field-store-link" name="field-store-link" placeholder="'.__('Ej: https://www.mystore.com', 'xopifier').'">
+                        <span class="error"></span>
                     </div>
                     <div class="field mb-3">
                         <label class="form-label w-100 mb-2" for="field-store-phrase">'.__('¿Tienes algún eslogan o frase que defina tu tienda?', 'xopifier').' <span>(Opcional)</span></label>
-                        <p class="mb-3 small">'.__('Lo usaremos para un mensaje de bienvenida. Si no tienes nada, puedes escribir ideas en tus propias palabras.', 'xopifier').'</p>
-                        <textarea class="form-control mt-2 '.($store_slogan_or_phrase != '' ? 'valid' : '').'" id="field-store-phrase" name="field-store-phrase" placeholder="">'.$store_slogan_or_phrase.'</textarea>
+                        <p class="mb-2 small">'.__('Lo usaremos para un mensaje de bienvenida. Si no tienes nada, puedes escribir ideas en tus propias palabras.', 'xopifier').'</p>
+                        <textarea class="form-control mt-2 '.($store_slogan_or_phrase != '' ? 'valid' : '').'" id="field-store-phrase" name="field-store-phrase" placeholder="'.__('Ej: es una selección de productos originales, hechos por talento emegente', 'xopifier').'">'.$store_slogan_or_phrase.'</textarea>
                     </div>
                     <div class="field mb-4">
                         <label class="form-label w-100 mb-2" for="field-store-featured-options">'.__('De las siguientes opciones ¿qué es lo que más quieres destacar?', 'xopifier').'</label>

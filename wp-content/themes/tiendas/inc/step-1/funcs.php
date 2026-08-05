@@ -30,6 +30,7 @@ function step_1_shortcode() {
                                 <input name="action" type="hidden" value="ws">
                                 <input name="wsa" type="hidden" value="create_user_account">
                                 <input type="hidden" name="lang" value="'.ICL_LANGUAGE_CODE.'" />
+                                <input type="hidden" name="nonce" value="'.wp_create_nonce(xopifier_TITLE_FOR_NONCE).'" />
                                 <div class="progressbar" style="display: none;">
                                     <div class="row w-100">
                                         <div class="col-12 progress-box">
@@ -400,16 +401,16 @@ function step_1_generate_resume_fields(){
             }
 
             $form_fields_resume_col .= '
-                <div class="col-md-6 col-sm-12 col-12 form-item">
+                <div class="col-sm-12 col-12 form-item">
                     <div class="bordered-box-inner">
                         <div class="d-flex justify-content-between align-items-start gap-3">
                             <h4 class="mb-3">'.$form['resume_field_title'].' '.($form['form_unique_id'] == 'step-1-form-12' ? '<span class="resume-field text" field="'.$field_store_name.'"></span>' : '').'</h4>
-                            <a class="btn-edit" href="#'.$form['form_unique_id'].'" title="'.__('Editar', 'xopifier').'">'.__('Editar', 'xopifier').'</a>
                         </div>
                         '.$fields_resume.'
                     </div>
                 </div>
             ';
+            //<a class="btn-edit" href="#'.$form['form_unique_id'].'" title="'.__('Editar', 'xopifier').'">'.__('Editar', 'xopifier').'</a>
         }
     }
 
@@ -524,23 +525,31 @@ function step_1_generate_fields_and_forms($key, $form){
             }elseif($field['form_field_type'] == 'radios'){//genero el campo del grupo de radios
                 $values = $field['form_field_values'];
                 $radios = '';
+                $mores = '';
                 if(is_array($values) && count($values) > 0){
                     foreach($values as $k => $value){
                         $radios .= '
-                            <div class="form-check form-radio">
-                                <input class="form-radio-input '.($field['required'] ? 'required notverified' : 'verified').'" type="radio" value="'.$value['value'].'" id="field-'.$field['form_field_name'].'-'.$k.'" name="field-'.$field['form_field_name'].'">
+                            <div class="form-check form-radio '.($value['display_textarea_on_click'] ? 'has-more' : '').'" '.($field['form_field_orientation'] ? '' : 'style="width: 50% !important;"').'>
+                                '.($value['tag'] ? '<div class="form-radio-tag">'.str_replace('[star]', '<img src="'.get_template_directory_uri().'/img/star.svg" />', $value['tag']).'</div>' : '').'
+                                <input class="form-radio-input '.($field['required'] ? 'required notverified' : 'verified').'" target="'.($value['target'] ? $value['target'] : '').'" type="radio" value="'.$value['value'].'" id="field-'.$field['form_field_name'].'-'.$k.'" name="field-'.$field['form_field_name'].'">
                                 <label class="form-radio-label" for="field-'.$field['form_field_name'].'-'.$k.'">
                                     '.$value['value'].'
                                 </label>
                             </div>
                         ';
                     }
+
+                    foreach($values as $k => $value){
+                        $mores .= $value['display_textarea_on_click'] ? '<div id="field-'.$field['form_field_name'].'-'.$k.'-more" class="more-info-block" style="display: none;"><p>'.$value['target_description'].'</p></div>' : '';
+                    }
                     
                     $form_fields .= '
                         <div class="field mb-4 '.($field['form_field_orientation'] ? '' : 'd-flex flex-wrap').'" max-selected="'.$field['form_field_max_selection'].'" '.($field['default_visibility'] ? 'style="display:none!important;"' : '').'>
                             <label class="form-label w-100 d-block mb-3" for="field-'.$field['form_field_name'].($form['repeater_field'] && !$form['category_repeater_field'] ? '-0' : ($form['repeater_field'] && $form['category_repeater_field'] ? '-'.$id : '')).'">'.$field['form_field_label'].' '.(!$field['required'] && $field['form_field_display_optional'] ? '<span>('.__('Opcional', 'xopifier').')</span>' : '').'</label>
+                            '.($field['form_field_description'] != '' ? '<span class="d-block info w-100 mb-4">'.$field['form_field_description'].'</span>' : '').'
                             '.$radios.'
                         </div>
+                        '.$mores.'
                     ';
                 }
             }elseif($field['form_field_type'] == 'content'){//genero el campo content

@@ -6,6 +6,7 @@ function step_2_generate_login_form($design_id) {
             <input name="wsa" type="hidden" value="login">
             <input type="hidden" name="lang" value="'.ICL_LANGUAGE_CODE.'" />
             <input name="design_id" type="hidden" value="'.$design_id.'">
+            <input type="hidden" name="nonce" value="'.wp_create_nonce(xopifier_TITLE_FOR_NONCE).'">
             <div class="user-form-modal">
                 <div class="user-form-modal-box">
                     <div class="form-loader" style="display: none;"></div>
@@ -337,7 +338,7 @@ function step_2_shortcode(){
                             </div>
 
                             <div class="my-5 d-md-flex d-sm-block d-block text-center align-content-center justify-content-center gap-1 flex-wrap" style="line-height: 1.2;">
-                                '.__('¿Ninguna opción te convenció? No hay problema, solo te pedimos que nos cuentes', 'xopifier').' <a class="btn-select-no-design direct-link" product-image-id="'.$homepage['image']['ID'].'" store-id="'.$store->ID.'" product-name="'.get_field('current_store_name', $store->ID).' ['.$d['title'].']" design="'.($k+1).'">'.__('qué crees que debemos mejorar a futuro', 'xopifier').'.</a>
+                                '.__('¿Ninguna opción te convenció? No hay problema, solo te pedimos que nos cuentes', 'xopifier').' <a class="btn-select-no-design direct-link" product-image-id="'.$homepage['image']['ID'].'" store-id="'.$store->ID.'" product-name="'.get_field('current_store_name', $store->ID).' ['.$d['title'].']" design="'.$designId.'">'.__('qué crees que debemos mejorar a futuro', 'xopifier').'.</a>
                             </div>
 
                             '.step_2_generate_unselect_design_modal_form($designId).'
@@ -462,6 +463,7 @@ function step_2_generate_unselect_design_modal_form($design_id){
                         <input type="hidden" name="wsa" value="unselect_design_form" />
                         <input type="hidden" name="lang" value="'.ICL_LANGUAGE_CODE.'" />
                         <input name="design_id" type="hidden" value="'.$design_id.'">
+                        <input type="hidden" name="nonce" value="'.wp_create_nonce(xopifier_TITLE_FOR_NONCE).'" />
                         <button class="btn btn-primary btn-unselect-design" type="submit">'.__('Enviar comentario', 'xopifier').'</button>
                     </div>
                 </form>
@@ -483,6 +485,7 @@ function step_2_generate_select_design_modal_form($design_id){
             <input type="hidden" name="product-approved-design" value="" />
             <input type="hidden" name="product-store-id" value="" />
             <input type="hidden" name="product-approved-design-comment" value="" />
+            <input type="hidden" name="nonce" value="'.wp_create_nonce(xopifier_TITLE_FOR_NONCE).'" />
         </form>
         <div class="select-design-form-modal" style="display: none;">
             <div class="select-design-form-modal-box position-relative">

@@ -83,6 +83,7 @@ function step_3_tabs_info_contact($design_id) {
             <input type="hidden" name="lang" value="'.ICL_LANGUAGE_CODE.'" />
             <input type="hidden" name="wsa" value="save-store-info-contact-data" />
             <input type="hidden" name="store_id" value="'.$store->ID.'" />
+            <input type="hidden" name="nonce" value="'.wp_create_nonce(xopifier_TITLE_FOR_NONCE).'" />
 
             <div class="row">
                 <div class="pe-md-5 pe-sm-auto pe-auto col-md-8 col-sm-12 col-12 main-column position-relative '.($is_disabled === false || $is_disabled == 0 ? '' : 'disabled').'">

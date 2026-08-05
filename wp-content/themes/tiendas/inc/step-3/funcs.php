@@ -48,7 +48,7 @@ function step_3_welcome($form, $design_id) {
         return '';
     }else{
         return '
-            <div class="sub-step welcome-step-3">
+            <div class="sub-step welcome-step-3 d-none">
                 <div class="row">
                     <div class="col-12 px-0">
                         
@@ -261,31 +261,31 @@ function step_3_tabs($design_id){
 
                         <ul class="nav nav-tabs d-flex gap-1 justify-content-between" id="myTabStep3" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="main-tab nav-link active w-100 '.get_step3_tab_status($step3_status, 'products-tab', true).'" id="products-tab" data-bs-toggle="tab" data-bs-target="#products" type="button" role="tab" aria-controls="products" aria-selected="true">
-                                    '.__('Productos', 'xopifier').'
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="main-tab nav-link w-100 '.get_step3_tab_status($step3_status, 'info-tab', true).'" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="false">
+                                <button class="main-tab nav-link active w-100 '.get_step3_tab_status($step3_status, 'info-tab', true).'" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="true">
                                     '.__('Información general', 'xopifier').'
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
+                                <button class="main-tab nav-link w-100 '.get_step3_tab_status($step3_status, 'products-tab', true).'" id="products-tab" data-bs-toggle="tab" data-bs-target="#products" type="button" role="tab" aria-controls="products" aria-selected="false">
+                                    '.__('Productos', 'xopifier').'
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
                                 <button class="main-tab nav-link w-100 '.get_step3_tab_status($step3_status, 'promos-tab', true).'" id="promos-tab" data-bs-toggle="tab" data-bs-target="#promos" type="button" role="tab" aria-controls="promos" aria-selected="false">
-                                    '.__('Promociones y descuentos', 'xopifier').'
+                                    '.__('Promos y descuentos', 'xopifier').'
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="main-tab nav-link w-100 extra '.get_step3_tab_status($step3_status, 'other-tab', true).'" id="other-tab" data-bs-toggle="tab" data-bs-target="#other" type="button" role="tab" aria-controls="other" aria-selected="false">
-                                    '.__('Otros idiomas', 'xopifier').'
+                                    '.__('Adicionales', 'xopifier').'
                                 </button>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContentStep3">
-                            <div class="tab-pane fade show active" id="products" role="tabpanel" aria-labelledby="products-tab" tab="products-tab">
+                            <div class="tab-pane fade show" id="products" role="tabpanel" aria-labelledby="products-tab" tab="products-tab">
                                 '.step_3_tabs_products($design_id).'
                             </div>
-                            <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab" tab="info-tab">
+                            <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab" tab="info-tab">
                                 '.step_3_tabs_info($design_id).'
                             </div>
                             <div class="tab-pane fade" id="promos" role="tabpanel" aria-labelledby="promos-tab" tab="promos-tab">
@@ -338,7 +338,8 @@ function step_3_tabs($design_id){
                                     <input type="hidden" name="design_id" value="'.$design_id.'" />
                                     <input type="hidden" name="lang" value="'.ICL_LANGUAGE_CODE.'" />
                                     <input type="hidden" name="batch-import-type" value="file" />
-                                
+                                    <input type="hidden" name="nonce" value="'.wp_create_nonce(xopifier_TITLE_FOR_NONCE).'" />
+
                                     <div class="field upload mb-2">
                                         <div class="field-upload-container field-upload-batch-files mt-0 px-5">
                                             <div class="field-upload-overlay"></div>
@@ -392,6 +393,7 @@ function step_3_tabs($design_id){
                                     <input type="hidden" name="design_id" value="'.$design_id.'" />
                                     <input type="hidden" name="lang" value="'.ICL_LANGUAGE_CODE.'" />
                                     <input type="hidden" name="batch-import-type" value="sheet" />
+                                    <input type="hidden" name="nonce" value="'.wp_create_nonce(xopifier_TITLE_FOR_NONCE).'" />
                                 
                                     <div class="field upload mb-0">
                                         <label class="form-label small" for="field-store-batch-url">'.__('Link al Google Sheet:', 'xopifier').'</label>
@@ -551,3 +553,13 @@ function step_3_shortcode(){
     return $html;
 }
 add_shortcode("step3", "step_3_shortcode");
+
+function find_active_service($service, $active_services){
+    // var_dump($service, $active_services);
+    foreach($active_services as $serv){
+        if($serv['id'] == $service && $serv['active'] == 1){
+            return 1;
+        }
+    }
+    return 0;
+}

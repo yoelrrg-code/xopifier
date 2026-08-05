@@ -94,7 +94,7 @@ function step_3_tabs_promos_ads($design_id){
             <input type="hidden" name="disable" value="false" />
             <input type="hidden" name="wsa" value="save-store-promos-ads-data" />
             <input type="hidden" name="store_id" value="'.$store->ID.'" />
-
+            <input type="hidden" name="nonce" value="'.wp_create_nonce(xopifier_TITLE_FOR_NONCE).'" />
             <div class="row">
                 <div class="pe-md-5 pe-sm-auto pe-auto col-md-8 col-sm-12 col-12 main-column position-relative '.($is_active ? '' : 'disabled').'">
                     <div class="disabled-overlay"></div>
@@ -204,7 +204,7 @@ function step_3_tabs_promos_subscriber($design_id){
             <input type="hidden" name="lang" value="'.ICL_LANGUAGE_CODE.'" />
             <input type="hidden" name="wsa" value="save-store-promos-discount-data" />
             <input type="hidden" name="store_id" value="'.$store->ID.'" />
-
+            <input type="hidden" name="nonce" value="'.wp_create_nonce(xopifier_TITLE_FOR_NONCE).'" />
             <div class="row">
                 <div class="pe-md-5 pe-sm-auto pe-auto col-md-8 col-sm-12 col-12 main-column position-relative '.($is_active ? '' : 'disabled').'">
                     <div class="disabled-overlay"></div>
